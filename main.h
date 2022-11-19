@@ -1,50 +1,23 @@
 #ifndef MAIN_H
 #define MAIN_H
-
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdarg.h>
-
-/* utils.c */
-int _strlen(const char *);
-int print(char *);
-char *itoa(long int, int);
-
-/* printf.c */
-int _printf(const char *, ...);
-
-/* handler.c */
-int handler(const char *, va_list);
-int percent_handler(const char *, va_list, int *);
-
-/* printers */
-int print_string(va_list);
-int print_char(va_list);
-int print_integer(va_list);
-int print_binary(va_list);
-int print_rot(va_list);
-int print_unsigned(va_list);
-int print_octal(va_list);
-int print_hexadecimal_low(va_list);
-int print_hexadecimal_upp(va_list);
-int print_pointer(va_list);
-int print_rev_string(va_list);
-
-/* _putchar.c */
-int _putchar(char);
-int buffer(char);
-
-/**
- * struct _format - Typedef struct
- *
- * @type: Format
- * @f: The function associated
- **/
-typedef struct _format
-{
-	char type;
-	int (*f)(va_list);
-} format;
-
-
-#endif /* MAIN_H */
+int _printf(const char *format, ...);
+char *print_str(char *s, char *, char, char *);
+char *print_strcap(char *s, char *, char *);
+char *print_char(char c, char *);
+char *print_int(int num, char *, char *);
+char *print_uint(int, char *, char *);
+char *print_base(unsigned long int num, unsigned int base, char f,
+		char *buff, char *flags);
+char *print_p(long unsigned int, char *);
+char hex(unsigned num, char flag);
+int len(char *s);
+unsigned int len_int(unsigned int);
+char *save_int(char *, int, unsigned int);
+char *save_uint(char *, unsigned int, unsigned int);
+char get_format(const char *format, int *);
+char *get_flags(const char *format, int);
+char *render_flags(char *flags, char *, int, int, int);
+char *plus_flag(char *);
+char *invisible_plus(char *);
+char *hash_flag(char *);
+#endif
