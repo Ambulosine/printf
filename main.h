@@ -1,23 +1,36 @@
-#ifndef MAIN_H
-#define MAIN_H
-int _printf(const char *format, ...);
-char *print_str(char *s, char *, char, char *);
-char *print_strcap(char *s, char *, char *);
-char *print_char(char c, char *);
-char *print_int(int num, char *, char *);
-char *print_uint(int, char *, char *);
-char *print_base(unsigned long int num, unsigned int base, char f,
-		char *buff, char *flags);
-char *print_p(long unsigned int, char *);
-char hex(unsigned num, char flag);
-int len(char *s);
-unsigned int len_int(unsigned int);
-char *save_int(char *, int, unsigned int);
-char *save_uint(char *, unsigned int, unsigned int);
-char get_format(const char *format, int *);
-char *get_flags(const char *format, int);
-char *render_flags(char *flags, char *, int, int, int);
-char *plus_flag(char *);
-char *invisible_plus(char *);
-char *hash_flag(char *);
+#ifndef HOLBERTON_H
+#define HOLBERTON_H
+
+#include <stdarg.h>
+#include <stddef.h>
+#include <stdlib.h>
+
+/**
+ * struct structprint - structure containing
+ * @q: the location and method to translate data to characters.
+ * @u: print function for specific type.
+ *
+ * Return: int
+ */
+typedef struct structprint
+{
+	char *q;
+	int (*u)(char *format, va_list);
+} structype;
+
+int _putchar(char ch);
+int _puts(char *string);
+int printc(char *format, va_list);
+int printstr(char *format, va_list);
+int (*driver(char *format))(char *format, va_list);
+int _printf(char *format, ...);
+int printint(char *format, va_list pa);
+int integer(int number);
+int contadordigit(int number);
+int _abs(int number);
+int printpercent(char *format, va_list pa);
+int printhex(char *format, va_list);
+int printHEX(char *format, va_list);
+int printocta(char *format, va_list);
+int print_unsign(char *format, va_list);
 #endif
