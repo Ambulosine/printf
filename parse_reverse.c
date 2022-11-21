@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stdarg.h>
+#include <stdio.h>
 /**
  * parse_rev - substitute %r by argument number in reverse
  * @buff_dest: string to change
